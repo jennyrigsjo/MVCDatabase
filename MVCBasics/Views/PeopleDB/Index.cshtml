@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "People DB Index";  
+}
+
+@model ViewModelsContainer
+
+
+<h1>People Database Index</h1>
+
+<form asp-controller="PeopleDB" asp-action="Search" method="post" class="search people">
+    <fieldset>
+        <legend>Search for people</legend>
+
+        <label for="search">Search term:</label>
+        <input type="text" id="search" name="search" value="@Model.People.Search" required>
+
+        <input type="submit" name="submit" value="Search" class="submit">
+    </fieldset>
+</form>
+
+
+
+<form asp-controller="PeopleDB" asp-action="CreatePerson" method="post" class="create person">
+    <div asp-validation-summary="All" class="error-message"></div>
+    <fieldset>
+        <legend>Add a person</legend>
+
+        <div class="field">
+            <label asp-for="CreatePerson.Name" for="name"></label>
+            <input asp-for="CreatePerson.Name" type="text" id="name" name="name" value="@Model.CreatePerson.Name">
+            <span asp-validation-for="CreatePerson.Name"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="CreatePerson.Phone" for="phone"></label>
+            <input asp-for="CreatePerson.Phone" type="text" id="phone" name="phone" value="@Model.CreatePerson.Phone">
+            <span asp-validation-for="CreatePerson.Phone"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="CreatePerson.City" for="city"></label>
+            <input asp-for="CreatePerson.City" type="text" id="city" name="city" value="@Model.CreatePerson.City">
+            <span asp-validation-for="CreatePerson.City"></span>
+        </div>
+
+        <input type="submit" name="submit" value="Create" class="submit">
+    </fieldset>
+</form>
+
+
+<h2>List of people</h2>
+
+@if (Model.People.List.Any())
+{
+<div class="container table people">
+    <div class="row column-headers">
+        <div class="column-header col-xs-3 col-sm-3 col-md-3 col-lg-3">Name</div>
+        <div class="column-header col-xs-3 col-sm-3 col-md-3 col-lg-3">Telephone</div>
+        <div class="column-header col-xs-3 col-sm-3 col-md-3 col-lg-3">City</div>
+        <div class="column-header col-xs-3 col-sm-3 col-md-3 col-lg-3">Action</div>
+    </div>
+    @foreach (Person person in Model.People.List)
+    {
+        <partial name="~/Views/Shared/_TableRowPersonPartial.cshtml" model="person" />
+    }
+</div>
+}
+else
+{
+    <p>List has no items.</p>
+}
