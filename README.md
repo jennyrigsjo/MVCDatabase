@@ -32,3 +32,7 @@ https://github.com/jennyrigsjo/MVCData/blob/MVCData3/MVC%20Data%20Assignment%203
 ## Assignment 1 instructions:
 
 https://github.com/jennyrigsjo/MVCDatabase/blob/master/Databases%20Assignment%201.pdf
+
+## Assignment 2 instructions:
+
+https://github.com/jennyrigsjo/MVCDatabase/blob/MVCDatabase2/Databases%20Assignment%202.pdf
