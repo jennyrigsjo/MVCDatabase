@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace MVCBasics.Models
 {
-    public static class GitHub
+    public static class GitHubModel
     {
         private static readonly HttpClient client = new();
         public static async Task<List<Repository>> GetLatestUserRepos(string uri, string limit = "3", string sortBy = "created")

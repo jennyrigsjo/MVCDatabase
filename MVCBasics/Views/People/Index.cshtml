@@ -1,13 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "People DB Index";  
+    ViewData["Title"] = "People Index";  
 }
 
 @model ViewModelsContainer
 
 
-<h1>People Database Index</h1>
+<h1>People Index</h1>
 
-<form asp-controller="PeopleDB" asp-action="Search" method="post" class="search people">
+<form asp-controller="People" asp-action="Search" method="post" class="search people">
     <fieldset>
         <legend>Search for people</legend>
 
@@ -20,7 +20,7 @@
 
 
 
-<form asp-controller="PeopleDB" asp-action="CreatePerson" method="post" class="create person">
+<form asp-controller="People" asp-action="CreatePerson" method="post" class="create person">
     <div asp-validation-summary="All" class="error-message"></div>
     <fieldset>
         <legend>Add a person</legend>
@@ -39,7 +39,7 @@
 
         <div class="field">
             <label asp-for="CreatePerson.City" for="city"></label>
-            <input asp-for="CreatePerson.City" type="text" id="city" name="city" value="@Model.CreatePerson.City">
+            <select name="city" asp-for="CreatePerson.City" asp-items="@Model.CreatePerson.SelectCity" selected="@Model.CreatePerson.City"></select>
             <span asp-validation-for="CreatePerson.City"></span>
         </div>
 
@@ -61,7 +61,7 @@
     </div>
     @foreach (Person person in Model.People.List)
     {
-        <partial name="~/Views/Shared/_TableRowPersonPartial.cshtml" model="person" />
+        <partial name="~/Views/Shared/_TableRowPerson.cshtml" model="person" />
     }
 </div>
 }

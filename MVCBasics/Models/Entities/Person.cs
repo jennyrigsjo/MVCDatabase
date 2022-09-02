@@ -10,21 +10,21 @@ namespace MVCBasics.Models
 
         }
 
-        public Person(string name, string phone, string city)
+        public Person(string name, string phone, City city)
         {
             Name = name;
             Phone = phone;
             City = city;
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
+
         public string Name { get; set; } = string.Empty;
 
         public string Phone { get; set; } = string.Empty;
 
-        public string City { get; set; } = string.Empty;
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public City City { get; set; } = new City();
     }
 }

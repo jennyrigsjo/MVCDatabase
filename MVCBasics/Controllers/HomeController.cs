@@ -17,7 +17,7 @@ namespace MVCBasics.Controllers
 
         public async Task<IActionResult> Projects()
         {
-            ViewBag.Repos = await GitHub.GetLatestUserRepos("https://api.github.com/users/jennyrigsjo/repos");
+            ViewBag.Repos = await GitHubModel.GetLatestUserRepos("https://api.github.com/users/jennyrigsjo/repos");
             return View();
         }
     }

@@ -30,7 +30,7 @@ $("#spaForm").submit(function (event) {
 
 function GetPeopleList() {
 
-    let url = "/AjaxDB/PeopleList";
+    let url = "/Ajax/PeopleList";
 
     $.ajax({
         type: 'GET',
@@ -54,7 +54,7 @@ function GetPerson(id) {
         return;
     }
 
-    let url = `/AjaxDB/GetPerson/${id}`;
+    let url = `/Ajax/GetPerson/${id}`;
 
     $.ajax({
         type: 'POST',
@@ -78,7 +78,7 @@ function DeletePerson(id) {
         return;
     }
 
-    let url = `/AjaxDB/DeletePerson/${id}`;
+    let url = `/Ajax/DeletePerson/${id}`;
 
     $.ajax({
         type: 'POST',

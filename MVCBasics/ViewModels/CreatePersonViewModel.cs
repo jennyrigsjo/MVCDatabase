@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using MVCBasics.Models;
 
 namespace MVCBasics.ViewModels
 {
@@ -15,5 +17,7 @@ namespace MVCBasics.ViewModels
         [Required]
         [Display(Name = "City of residence")]
         public string City { get; set; } = string.Empty;
+
+        public SelectList? SelectCity { get; set; }
     }
 }
