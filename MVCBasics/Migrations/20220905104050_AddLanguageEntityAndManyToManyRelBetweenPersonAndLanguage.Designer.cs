@@ -3,6 +3,7 @@ using MVCBasics.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCBasics.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220905104050_AddLanguageEntityAndManyToManyRelBetweenPersonAndLanguage")]
+    partial class AddLanguageEntityAndManyToManyRelBetweenPersonAndLanguage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,123 +36,6 @@ namespace MVCBasics.Migrations
                     b.HasIndex("PeopleID");
 
                     b.ToTable("LanguagePerson");
-
-                    b.HasData(
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 1
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 2
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 3
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 4
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 5
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 6
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 9
-                        },
-                        new
-                        {
-                            LanguagesID = 1,
-                            PeopleID = 13
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 1
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 2
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 3
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 6
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 7
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 8
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 9
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 10
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 11
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 12
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 13
-                        },
-                        new
-                        {
-                            LanguagesID = 2,
-                            PeopleID = 14
-                        },
-                        new
-                        {
-                            LanguagesID = 3,
-                            PeopleID = 9
-                        },
-                        new
-                        {
-                            LanguagesID = 3,
-                            PeopleID = 13
-                        },
-                        new
-                        {
-                            LanguagesID = 3,
-                            PeopleID = 14
-                        });
                 });
 
             modelBuilder.Entity("MVCBasics.Models.City", b =>
@@ -262,23 +147,6 @@ namespace MVCBasics.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Languages");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "Norwegian"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "English"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "Swedish"
-                        });
                 });
 
             modelBuilder.Entity("MVCBasics.Models.Person", b =>

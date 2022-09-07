@@ -32,7 +32,8 @@ namespace MVCBasics.Migrations
                     { 2, 1, "Jotunheim" },
                     { 3, 2, "New York" },
                     { 4, 2, "Westview" },
-                    { 5, 3, "Stockholm" },
+                    //{ 5, 3, "Stockholm" },
+                    { 5, 3, "Göteborg" },
                     { 6, 3, "Alingsås" }
                 });
 

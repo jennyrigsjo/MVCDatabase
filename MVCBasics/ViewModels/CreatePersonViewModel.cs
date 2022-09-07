@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVCBasics.Models;
 
@@ -10,14 +11,21 @@ namespace MVCBasics.ViewModels
         [Display(Name = "First and last name")]
         public string Name { get; set; } = string.Empty;
 
+
         [Required]
         [Display(Name = "Telephone number")]
         public string Phone { get; set; } = string.Empty;
 
-        [Required]
-        [Display(Name = "City of residence")]
-        public string City { get; set; } = string.Empty;
 
+        [Required]
+        [ValidCityID]
+        [Display(Name = "City of residence")]
+        public int City { get; set; }
         public SelectList? SelectCity { get; set; }
+
+
+        [Display(Name = "Languages (optional)")]
+        public int[]? Languages { get; set; }
+        public MultiSelectList? SelectLanguages { get; set; }
     }
 }

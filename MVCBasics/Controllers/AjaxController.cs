@@ -39,7 +39,12 @@ namespace MVCBasics.Controllers
         public IActionResult GetPerson(int id = 0)
         {
             List<Person> list = new();
-            var person = Database.People.Include(p => p.City).Where(p => p.ID == id).ToList().FirstOrDefault();
+            var person = Database.People
+                .Include(p => p.City)
+                .Include(p => p.Languages)
+                .Where(p => p.ID == id)
+                .ToList()
+                .FirstOrDefault();
 
             if (person != null)
             {

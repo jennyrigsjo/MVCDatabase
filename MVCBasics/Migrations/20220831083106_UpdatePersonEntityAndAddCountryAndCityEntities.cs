@@ -132,7 +132,8 @@ namespace MVCBasics.Migrations
                     { 2, "Valhalla", "Loki Odinson", "1234 567890" },
                     { 3, "New York", "Jane Foster", "2345 678901" },
                     { 4, "New York", "Darcy Lewis", "3456 789012" },
-                    { 5, "Stockholm", "Erik Selvig", "4567 890123" }
+                    //{ 5, "Stockholm", "Erik Selvig", "4567 890123" }
+                    { 5, "Göteborg", "Erik Selvig", "4567 890123" }
                 });
         }
     }

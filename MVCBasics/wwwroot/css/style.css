@@ -90,8 +90,21 @@ header .menu li:hover a {
 
 /*** Tables ***/
 
-    .table .column-headers {
+.table .column-headers {
     font-weight: bold;
+}
+
+.table .column-header,
+.table .column {
+    max-width: 20%;
+}
+
+.table .row {
+    padding: 0.5em 0;
+}
+
+.table .row:hover{
+    background-color: lightgray;
 }
 
 

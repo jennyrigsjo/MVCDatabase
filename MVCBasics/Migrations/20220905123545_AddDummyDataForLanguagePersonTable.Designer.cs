@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCBasics.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20220901082923_AddDummyDataAgain")]
-    partial class UpdateCityName
+    [Migration("20220905123545_AddDummyDataForLanguagePersonTable")]
+    partial class AddDummyDataForLanguagePersonTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,6 +22,138 @@ namespace MVCBasics.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("LanguagePerson", b =>
+                {
+                    b.Property<int>("LanguagesID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PeopleID")
+                        .HasColumnType("int");
+
+                    b.HasKey("LanguagesID", "PeopleID");
+
+                    b.HasIndex("PeopleID");
+
+                    b.ToTable("LanguagePerson");
+
+                    b.HasData(
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 1
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 2
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 3
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 4
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 5
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 6
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 9
+                        },
+                        new
+                        {
+                            LanguagesID = 1,
+                            PeopleID = 13
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 1
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 2
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 3
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 6
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 7
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 8
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 9
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 10
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 11
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 12
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 13
+                        },
+                        new
+                        {
+                            LanguagesID = 2,
+                            PeopleID = 14
+                        },
+                        new
+                        {
+                            LanguagesID = 3,
+                            PeopleID = 9
+                        },
+                        new
+                        {
+                            LanguagesID = 3,
+                            PeopleID = 13
+                        },
+                        new
+                        {
+                            LanguagesID = 3,
+                            PeopleID = 14
+                        });
+                });
 
             modelBuilder.Entity("MVCBasics.Models.City", b =>
                 {
@@ -114,6 +246,40 @@ namespace MVCBasics.Migrations
                         {
                             ID = 3,
                             Name = "Sweden"
+                        });
+                });
+
+            modelBuilder.Entity("MVCBasics.Models.Language", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Name = "Norwegian"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Name = "English"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Name = "Swedish"
                         });
                 });
 
@@ -241,6 +407,21 @@ namespace MVCBasics.Migrations
                             Name = "Jenny Rigsjö",
                             Phone = "0763 446373"
                         });
+                });
+
+            modelBuilder.Entity("LanguagePerson", b =>
+                {
+                    b.HasOne("MVCBasics.Models.Language", null)
+                        .WithMany()
+                        .HasForeignKey("LanguagesID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MVCBasics.Models.Person", null)
+                        .WithMany()
+                        .HasForeignKey("PeopleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MVCBasics.Models.City", b =>

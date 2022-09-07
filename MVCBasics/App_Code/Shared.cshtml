@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using MVCBasics.Models;
 
 @functions
 {
@@ -9,5 +7,25 @@
 
         string capitalizeFirst = word[0].ToString().ToUpper() + word.Substring(1);
         return capitalizeFirst;
+    }
+
+    public static string GetLanguageString(Person person)
+    {
+
+        string languageString = "- - -";
+
+        if (person.Languages.Any())
+        {
+            List<string> languageNames = new List<string>();
+
+            foreach (Language language in person.Languages)
+            {
+                languageNames.Add(language.Name);
+            }
+
+            languageString = string.Join(", ", languageNames);
+        }
+
+        return languageString;
     }
 }

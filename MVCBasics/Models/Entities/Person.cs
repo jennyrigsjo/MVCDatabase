@@ -10,11 +10,12 @@ namespace MVCBasics.Models
 
         }
 
-        public Person(string name, string phone, City city)
+        public Person(string name, string phone, City city, List<Language> languages)
         {
             Name = name;
             Phone = phone;
             City = city;
+            Languages = languages;
         }
 
         [Key]
@@ -26,5 +27,7 @@ namespace MVCBasics.Models
         public string Phone { get; set; } = string.Empty;
 
         public City City { get; set; } = new City();
+
+        public List<Language> Languages { get; set; } = new List<Language>();
     }
 }
