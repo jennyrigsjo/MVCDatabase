@@ -36,3 +36,7 @@ https://github.com/jennyrigsjo/MVCDatabase/blob/master/Databases%20Assignment%20
 ## Assignment 2 instructions:
 
 https://github.com/jennyrigsjo/MVCDatabase/blob/MVCDatabase2/Databases%20Assignment%202.pdf
+
+## Assignment 3 instructions:
+
+https://github.com/jennyrigsjo/MVCDatabase/blob/MVCDatabase3/Databases%20Assignment%203.pdf
