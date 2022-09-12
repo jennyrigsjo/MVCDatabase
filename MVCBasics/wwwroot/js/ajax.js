@@ -28,6 +28,54 @@ $("#spaForm").submit(function (event) {
 });
 
 
+function GetCitiesInCountry(countryID) {
+
+    let url = `/Ajax/GetCitiesInCountry?countryID=${countryID}`;
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+
+            let table = document.getElementById(`cities-country-${countryID}`);
+            table.innerHTML = response;
+            table.style.display = (table.style.display == "block") ? "none" : "block";
+
+            let link = document.getElementById(`view-cities-country-${countryID}`);
+            link.innerHTML = (table.style.display == "block") ? "Hide cities" : "View cities";
+        },
+        error: function (error) {
+            // This part will not trigger unless response status code is set to anything other than 2**
+        }
+    });
+}
+
+
+function GetCityInhabitants(cityID) {
+
+    let url = `/Ajax/GetCityInhabitants?cityID=${cityID}`;
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+
+            let table = document.getElementById(`inhabitants-city-${cityID}`);
+            table.innerHTML = response;
+            table.style.display = (table.style.display == "block") ? "none" : "block";
+
+            let link = document.getElementById(`view-inhabitants-city-${cityID}`);
+            link.innerHTML = (table.style.display == "block") ? "Hide inhabitants" : "View inhabitants";
+        },
+        error: function (error) {
+            // This part will not trigger unless response status code is set to anything other than 2**
+        }
+    });
+}
+
+
 function GetPeopleList() {
 
     let url = "/Ajax/PeopleList";

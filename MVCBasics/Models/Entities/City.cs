@@ -10,9 +10,10 @@ namespace MVCBasics.Models
 
         }
 
-        public City(string name)
+        public City(string name, Country country)
         {
             Name = name;
+            Country = country;
         }
 
         [Key]

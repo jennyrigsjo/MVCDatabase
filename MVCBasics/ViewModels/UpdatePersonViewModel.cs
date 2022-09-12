@@ -5,8 +5,14 @@ using MVCBasics.Models;
 
 namespace MVCBasics.ViewModels
 {
-    public class CreatePersonViewModel
+    public class UpdatePersonViewModel
     {
+        [HiddenInput]
+        [Required]
+        [ValidPersonID]
+        public int ID { get; set; } = 0;
+        
+
         [Required]
         [Display(Name = "First and last name")]
         public string Name { get; set; } = string.Empty;

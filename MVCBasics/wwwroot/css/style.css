@@ -88,6 +88,42 @@ header .menu li:hover a {
 
 
 
+/*** Link-like elements ***/
+
+.link {
+    color: blue;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+
+
+/*** CRUD Forms ***/
+
+form.create,
+form.update {
+    margin-bottom: 3em;
+}
+
+form.create .error-message ul,
+form.update .error-message ul {
+    color: red;
+}
+
+form.create .field,
+form.update .field {
+    margin-bottom: 1em;
+}
+
+form.create label,
+form.update label {
+    min-width: 150px;
+}
+
+
+
 /*** Tables ***/
 
 .table .column-headers {
@@ -175,22 +211,34 @@ form.guess-number fieldset {
 
 /*** People Index page ***/
 
-form.search.people, 
-form.create.person {
-    margin-bottom: 3em;
+.forms.people-index {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
-form.create.person .error-message ul {
-    color: red;
+form.person label {
+    display: block;
 }
 
-form.create.person .field {
+
+
+/*** City Index page ***/
+
+.table.city-inhabitants {
+    padding: 0.5em;
     margin-bottom: 1em;
+    background-color: aliceblue;
 }
 
-form.create.person label {
-    display: inline-block;
-    min-width: 150px;
+
+
+/*** Country Index page ***/
+
+.table.cities-in-country {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    background-color: aliceblue;
 }
 
 

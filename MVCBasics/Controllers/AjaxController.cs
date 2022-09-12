@@ -35,6 +35,28 @@ namespace MVCBasics.Controllers
         }
 
 
+        public IActionResult GetCityInhabitants(int cityID = 0)
+        {
+            PeopleViewModel viewModel = new()
+            {
+                List = Database.People.Include(p => p.Languages).Where(p => p.City.ID == cityID).ToList()
+            };
+
+            return View("_CityInhabitantsList", viewModel);
+        }
+
+
+        public IActionResult GetCitiesInCountry(int countryID = 0)
+        {
+            CitiesViewModel viewModel = new()
+            {
+                List = Database.Cities.Where(c => c.Country.ID == countryID).ToList()
+            };
+
+            return View("_CitiesInCountryList", viewModel);
+        }
+
+
         [HttpPost]
         public IActionResult GetPerson(int id = 0)
         {

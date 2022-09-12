@@ -7,51 +7,56 @@
 
 <h1>People Index</h1>
 
-<form asp-controller="People" asp-action="Search" method="post" class="search people">
-    <fieldset>
-        <legend>Search for people</legend>
+<div class="forms people-index">
 
-        <label for="search">Search term:</label>
-        <input type="text" id="search" name="search" value="@Model.People.Search" required>
+    <form asp-controller="People" asp-action="Search" method="post" class="search people">
+        <fieldset>
+            <legend>Search for people</legend>
 
-        <input type="submit" name="submit" value="Search" class="submit">
-    </fieldset>
-</form>
+            <label for="search">Search term:</label>
+            <input type="text" id="search" name="search" value="@Model.People.Search" required>
+
+            <input type="submit" name="submit" value="Search" class="submit">
+        </fieldset>
+    </form>
+
+    <form asp-controller="People" asp-action="CreatePerson" method="post" class="create person">
+        <div asp-validation-summary="All" class="error-message"></div>
+        <fieldset>
+            <legend>Add a person</legend>
+
+            <div class="field">
+                <label asp-for="CreatePerson.Name" for="name"></label>
+                <input asp-for="CreatePerson.Name" name="name" type="text">
+                <span asp-validation-for="CreatePerson.Name"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="CreatePerson.Phone" for="phone"></label>
+                <input asp-for="CreatePerson.Phone" name="phone" type="text">
+                <span asp-validation-for="CreatePerson.Phone"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="CreatePerson.City" for="city"></label>
+                <select asp-for="CreatePerson.City" name="city" asp-items="@Model.CreatePerson.SelectCity"></select>
+                <span asp-validation-for="CreatePerson.City"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="CreatePerson.Languages" for="languages"></label>
+                <select asp-for="CreatePerson.Languages" name="languages" asp-items="@Model.CreatePerson.SelectLanguages" multiple></select>
+                <span asp-validation-for="CreatePerson.Languages"></span>
+            </div>
+
+            <input type="submit" name="submit" value="Create" class="submit">
+        </fieldset>
+    </form>
+
+</div>
 
 
 
-<form asp-controller="People" asp-action="CreatePerson" method="post" class="create person">
-    <div asp-validation-summary="All" class="error-message"></div>
-    <fieldset>
-        <legend>Add a person</legend>
-
-        <div class="field">
-            <label asp-for="CreatePerson.Name" for="name"></label>
-            <input asp-for="CreatePerson.Name" type="text" id="name" name="name" value="@Model.CreatePerson.Name">
-            <span asp-validation-for="CreatePerson.Name"></span>
-        </div>
-
-        <div class="field">
-            <label asp-for="CreatePerson.Phone" for="phone"></label>
-            <input asp-for="CreatePerson.Phone" type="text" id="phone" name="phone" value="@Model.CreatePerson.Phone">
-            <span asp-validation-for="CreatePerson.Phone"></span>
-        </div>
-
-        <div class="field">
-            <label asp-for="CreatePerson.City" for="city"></label>
-            <select name="city" asp-for="CreatePerson.City" asp-items="@Model.CreatePerson.SelectCity" selected="@Model.CreatePerson.City"></select>
-            <span asp-validation-for="CreatePerson.City"></span>
-        </div>
-
-        <div class="field">
-            <label asp-for="CreatePerson.Languages" for="languages"></label>
-            <select name="languages" asp-for="CreatePerson.Languages" asp-items="@Model.CreatePerson.SelectLanguages"></select>
-            <span asp-validation-for="CreatePerson.Languages"></span>
-        </div>
-
-        <input type="submit" name="submit" value="Create" class="submit">
-    </fieldset>
-</form>
 
 
 <h2>List of people</h2>
